@@ -1,34 +1,49 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Dados para as cartas
+ 
   const lettersData = [
+    {
+      sender: "Isaac",
+      message:
+        "Oiii não sei em que momento vc vai ler isso ou quantas vezes vc vai ler, mas só quero que vc saiba que eu te amo, vc é uma pessoa incrível meu amor, a melhor lux que eu já conheci, Bom  eu sei que está muito cedo ainda mas feliz aniversário meu amor muito obrigado por tudo que vc faz por mim e por me fazer tão bem",
+    },
+    {
+      sender: "Junior",
+      message:
+        "Cami, se eu falasse para o meu eu mais novo que eu faria uma amizade em uma loja no shopping e que essa se tornaria uma de minhas amizade mais importantes eu acho que ele não acreditaria tenho muita sorte de ter encontrado você e de ter feito essa amizade que temos hoje. Desejo a você um ótimo niver e que continue sendo essa pessoa maravilhosa que você é.",
+    },
     {
       sender: "Estevão",
       message:
-        "Cami, você é como uma estrela cadente - rara, brilhante e capaz de iluminar até a noite mais escura. Sua energia positiva é contagiante e seu coração generoso inspira todos ao seu redor. Cada momento ao seu lado é um presente que ilumina nossos dias com alegria e significado. Você é verdadeiramente especial!",
+        "Cami,\nTe conhecer numa mesa de jogos foi uma das melhores surpresas. Você é leve, divertida e generosa, até me deu um afilhado: o Miguel, esse gatinho maravilhoso e brincalhão! Que tua energia siga encantando todos ao redor, como já encantou a todos nós!",
     },
     {
       sender: "Karina",
       message:
-        "Querida Cami, sua alma é um mapa estelar de bondade e inteligência. Sua capacidade de transformar o ordinário em extraordinário é admirável. Você traz luz e calor para nossas vidas, como um sol que nunca se põe. Seu sorriso ilumina os dias mais cinzentos e sua sabedoria guia como uma estrela polar. O mundo precisa de mais pessoas como você!",
+        "Cami, espero que estejamos presentes em todos os seus próximos nivers pra te desejar muita alegria e tudo de bom que a vida pode te proporcionar. Sou muito grata por te ter como amiga, você é muito especial pra mim. Te amo muito diva!",
     },
     {
-      sender: "Júnior",
+      sender: "Gabriel (Zumby)",
       message:
-        "Cami, seu sorriso é como o primeiro raio de sol da manhã - aquece, ilumina e traz a promessa de um dia maravilhoso. Sua presença é como uma constelação que nunca falha em nos guiar. Você é aquela pessoa rara que consegue ser forte e delicada ao mesmo tempo, determinada e compreensiva, vibrante e serena. Você é única e insubstituível!",
+        "Cami, mesmo não te conhecendo há muito tempo, já te considero muito! Você sempre me faz rir, é super divertida e deixa qualquer momento mais leve. Espero que a gente continue ganhando (ou roubando!) em muitos jogos juntos. Que seu aniversário seja incrível, cheio de alegria!!!",
     },
     {
-      sender: "Gabriel",
+      sender: "Craft",
       message:
-        "Para a estrela mais brilhante do nosso céu: que você continue irradiando essa luz especial que torna tudo ao seu redor mais bonito e significativo. Sua capacidade de amar e sua inteligência emocional são como faróis em meio à tempestade. Você é a prova viva de que existem anjos na Terra, disfarçados de pessoas maravilhosas como você!",
+        "Pode escrever fala kame e o Craft então feliz aniversário viu muitos anos de vida e eu te odeio profundamente por me criticar bjs do tio Craft",
     },
     {
-      sender: "Isaac",
+      sender: "Rafa",
       message:
-        "Cami, você é a prova de que existem pessoas feitas de constelações - raras, especiais e capazes de guiar quem tem a sorte de cruzar seu caminho! Sua combinação única de força e delicadeza, inteligência e compaixão, torna cada interação com você uma experiência enriquecedora. Você é como um eclipse - um fenômeno raro e belo que todos querem presenciar!",
+        "Aoba Cams! A gente se falou pouco e tals, mas desde então te acho uma pessoa muito legal. De acordo com o junior; eu sou uma versão pocket sua akakak. Então você é foda guria!! Você tem uma energia cativante. Eu super teria uma amizade contigo! Feliz aniversário,que seu dia seja incrivel, que  seus dias adiante  sejam só sucesso ! Que Deus te Ensaboe. Ass: Rafa",
     },
+    {
+      sender: "🐾 Miguel 🐾",
+      message: "Miaaaaaau <3",
+    },
+
   ];
 
-  // Dados para os presentes
+  
   const giftsData = [
     { title: "Aventura Estelar", code: "CAMI-ST4R-ADV3NTUR3" },
     { title: "Expansão Dourada", code: "G0LD-C4M1-3XP4NS10N" },
@@ -37,25 +52,25 @@ document.addEventListener("DOMContentLoaded", function () {
     { title: "Segredos do Zodíaco", code: "Z0D14C-S3CR3TS-C4M1" },
   ];
 
-  // Elementos do DOM
+  
   const envelopeContainer = document.querySelector(".envelope-container");
   const prevBtn = document.querySelector(".prev-btn");
   const nextBtn = document.querySelector(".next-btn");
   const giftsContainer = document.querySelector(".gifts-container");
   const starsContainer = document.querySelector(".stars-container");
 
-  // Variáveis de estado
+  
   let currentIndex = 0;
   let envelopes = [];
   let isAnimating = false;
   let isLetterOpen = false;
 
-  // Inicialização
+
   createEnvelopes();
   createGiftCards();
   createRandomStars(20);
 
-  // Criar envelopes
+
   function createEnvelopes() {
     lettersData.forEach((letter, index) => {
       const envelope = document.createElement("div");
@@ -87,17 +102,17 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCarousel();
   }
 
-  // Manipulador de clique no envelope
+  
   function handleEnvelopeClick(e) {
     if (isAnimating) return;
 
     const envelope = e.currentTarget;
     const isOpening = !envelope.classList.contains("open");
 
-    // Se clicou na carta, não faz nada
+  
     if (e.target.closest(".letter")) return;
 
-    // Fecha todas as outras cartas
+   
     closeAllLetters();
 
     if (isOpening) {
@@ -107,25 +122,25 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Abrir carta
+  
   function openLetter(envelope) {
     isLetterOpen = true;
     envelope.classList.add("open");
     document.body.classList.add("no-scroll");
 
-    // Scroll para o envelope aberto
+    
     setTimeout(() => {
       envelope.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 100);
   }
 
-  // Fechar carta
+ 
   function closeLetter(envelope) {
     isLetterOpen = false;
     envelope.classList.remove("open");
     document.body.classList.remove("no-scroll");
 
-    // Restaura animação
+    
     const letter = envelope.querySelector(".letter");
     letter.style.animation = "none";
     setTimeout(() => {
@@ -133,59 +148,49 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 10);
   }
 
-  // Fechar todas as cartas
+  
   function closeAllLetters() {
     document.querySelectorAll(".envelope.open").forEach((envelope) => {
       closeLetter(envelope);
     });
   }
 
-  // Atualizar carrossel
+  
   function updateCarousel() {
     if (isAnimating) return;
     isAnimating = true;
-
-    envelopes.forEach((envelope, index) => {
-      const distance =
-        (index - currentIndex + envelopes.length) % envelopes.length;
-
-      envelope.classList.remove("active", "prev", "next");
-
-      if (distance === 0) {
-        // Envelope ativo
-        envelope.classList.add("active");
-        envelope.style.transform = "scale(1) translateX(0)";
-        envelope.style.opacity = "1";
-        envelope.style.zIndex = "5";
-      } else if (distance === 1 || distance === envelopes.length - 1) {
-        // Envelopes adjacentes
-        const direction = distance === 1 ? 1 : -1;
-        envelope.classList.add(distance === 1 ? "next" : "prev");
-        envelope.style.transform = `translateX(${direction * 80}%) scale(0.7)`;
-        envelope.style.opacity = "0.6";
-        envelope.style.zIndex = "3";
-      } else {
-        // Envelopes mais distantes
-        const direction = index > currentIndex ? 1 : -1;
-        const absDistance = Math.min(Math.abs(index - currentIndex), 3);
-        envelope.style.transform = `translateX(${
-          direction * (80 + 40 * absDistance)
-        }%) scale(${Math.max(0.5, 0.7 - 0.1 * absDistance)})`;
-        envelope.style.opacity = `${Math.max(0.1, 0.6 - 0.2 * absDistance)}`;
-        envelope.style.zIndex = "1";
-      }
-    });
-
+    const currentEnvelope = document.querySelector(".envelope.active");
+    if (currentEnvelope) {
+      currentEnvelope.style.transition = "opacity 0.3s ease";
+      currentEnvelope.style.opacity = "0";
+    }
     setTimeout(() => {
+      envelopes.forEach((envelope, index) => {
+        envelope.classList.remove("active", "prev", "next");
+        envelope.style.display = "none";
+
+        if (index === currentIndex) {
+          envelope.classList.add("active");
+          envelope.style.display = "block";
+          envelope.style.opacity = "0";
+          envelope.style.transition = "opacity 0.3s ease 0.1s";
+
+         
+          void envelope.offsetWidth;
+
+          envelope.style.opacity = "1";
+        }
+      });
+
       isAnimating = false;
-    }, 500);
+    }, 300);
   }
 
-  // Navegação do carrossel
+ 
   function navigate(direction) {
     if (isAnimating) return;
 
-    // Se tem carta aberta, fecha antes de navegar
+   
     if (isLetterOpen) {
       closeAllLetters();
       setTimeout(() => {
@@ -201,14 +206,14 @@ document.addEventListener("DOMContentLoaded", function () {
       (currentIndex + direction + envelopes.length) % envelopes.length;
     updateCarousel();
 
-    // Scroll suave para o novo envelope
+    
     setTimeout(() => {
       const activeEnvelope = document.querySelector(".envelope.active");
       activeEnvelope.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 100);
   }
 
-  // Criar cards de presente
+ 
   function createGiftCards() {
     giftsData.forEach((gift) => {
       const giftCard = document.createElement("div");
@@ -227,7 +232,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Configurar funcionalidade de cópia
+ 
   function setupCopyFunctionality(card, code) {
     let holdTimer;
 
@@ -254,7 +259,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Função para copiar texto
+ 
   function copyToClipboard(text) {
     const textarea = document.createElement("textarea");
     textarea.value = text;
@@ -264,7 +269,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.body.removeChild(textarea);
   }
 
-  // Criar estrelas aleatórias
+
   function createRandomStars(count) {
     for (let i = 0; i < count; i++) {
       const star = document.createElement("div");
@@ -284,18 +289,17 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  // Event listeners
+  
   prevBtn.addEventListener("click", () => navigate(-1));
   nextBtn.addEventListener("click", () => navigate(1));
 
-  // Navegação por teclado
+
   document.addEventListener("keydown", (e) => {
     if (e.key === "ArrowLeft") navigate(-1);
     if (e.key === "ArrowRight") navigate(1);
     if (e.key === "Escape" && isLetterOpen) closeAllLetters();
   });
 
-  // Fechar carta ao clicar fora
   document.addEventListener("click", (e) => {
     if (!isLetterOpen) return;
 
@@ -307,7 +311,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  // Navegação por swipe (mobile)
+
   let touchStartX = 0;
   let touchEndX = 0;
 
@@ -332,9 +336,9 @@ document.addEventListener("DOMContentLoaded", function () {
     if (Math.abs(touchEndX - touchStartX) < 50) return;
 
     if (touchEndX < touchStartX) {
-      navigate(1); // Swipe left
+      navigate(1); 
     } else {
-      navigate(-1); // Swipe right
+      navigate(-1); 
     }
   }
 });
