@@ -22,6 +22,11 @@ document.addEventListener("DOMContentLoaded", function () {
         "Cami, espero que estejamos presentes em todos os seus próximos nivers pra te desejar muita alegria e tudo de bom que a vida pode te proporcionar. Sou muito grata por te ter como amiga, você é muito especial pra mim. Te amo muito diva!",
     },
     {
+      sender: "Tutu",
+      message:
+        "<img src='tutu.jpg' alt='Tutu' style='height: 500px; width: auto;' />",
+    },
+    {
       sender: "Gabriel (Zumby)",
       message:
         "Cami, mesmo não te conhecendo há muito tempo, já te considero muito! Você sempre me faz rir, é super divertida e deixa qualquer momento mais leve. Espero que a gente continue ganhando (ou roubando!) em muitos jogos juntos. Que seu aniversário seja incrível, cheio de alegria!!!",
@@ -40,17 +45,21 @@ document.addEventListener("DOMContentLoaded", function () {
       sender: "🐾 Miguel 🐾",
       message: "Miaaaaaau <3",
     },
-
   ];
 
   
-  const giftsData = [
-    { title: "Aventura Estelar", code: "CAMI-ST4R-ADV3NTUR3" },
-    { title: "Expansão Dourada", code: "G0LD-C4M1-3XP4NS10N" },
-    { title: "Pacote de Constelações", code: "C0NST3LL4T10N-P4CK" },
-    { title: "Moedas da Via Láctea", code: "M1LKYW4Y-C01NS-2023" },
-    { title: "Segredos do Zodíaco", code: "Z0D14C-S3CR3TS-C4M1" },
-  ];
+const giftsData = [
+  { title: "Monster Prom 3: Monster Roadtrip", code: "DGC7Z-QY07Y-CV9Y3" },
+  { title: "The Deed Dynasty", code: "WL36E-NJK4D-IXLG5" },
+  { title: "Beneath Oresa", code: "NXDLZ-Q55F6-I309A" },
+  { title: "Forbidden Planet", code: "4MEDZ-TRT85-QPMX7" },
+  { title: "ReignMaker", code: "JXTAG-XYGLP-FYKDV" },
+  { title: "Sentience: The Android's Tale", code: "GQDKG-F4E3F-5TEHR" },
+  { title: "Crown Champion: Legend of The Arena", code: "E4AW9-9T0N3-RJX6P" },
+  { title: "KarmaZoo", code: "FPXTQ-GZHMC-PGDGK" },
+  { title: "Railway Islands - Puzzle", code: "89I0L-IYMVX-ZCZMV" },
+  { title: "Memories of A Vagabond", code: "JGMDD-KGLG5-H6I40" },
+];
 
   
   const envelopeContainer = document.querySelector(".envelope-container");
@@ -232,6 +241,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  
  
   function setupCopyFunctionality(card, code) {
     let holdTimer;
@@ -340,5 +350,16 @@ document.addEventListener("DOMContentLoaded", function () {
     } else {
       navigate(-1); 
     }
+  }
+});
+
+let clickCount = 0;
+const camiElement = document.getElementById("cami");
+const esconderElement = document.querySelector(".esconder");
+
+camiElement.addEventListener("click", () => {
+  clickCount++;
+  if (clickCount === 5) {
+    esconderElement.style.display = "block";
   }
 });
